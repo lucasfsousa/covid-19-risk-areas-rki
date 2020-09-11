@@ -8,6 +8,6 @@
   },
   "scripts": {
     "start": "node_modules/.bin/parcel index.html && cp countries.geojson dist",
-    "build": "node_modules/.bin/parcel build --experimental-scope-hoisting --public-url html index.html -d docs && cp countries.geojson docs"
+    "build": "node_modules/.bin/parcel build index.html --no-content-hash --no-source-maps --no-minify -d docs --public-url ./ && cp countries.geojson docs"
   }
 }
