@@ -7,6 +7,11 @@ This project wants to present the same information in a map, so it will be easie
 
 This project is not related by any means with the German government and do not replace the list from [RKI](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Risikogebiete_neu.html).
 
+## Live App
+
+You can see the application running here: https://lucasfsousa.com/covid-19-risk-areas-rki/
+
+
 # How the information is updated?
 TBD
 
