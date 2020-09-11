@@ -1,6 +1,7 @@
 .idea
 .cache
 node_modules
+dist
 
 generate/node_modules
 generate/dist
