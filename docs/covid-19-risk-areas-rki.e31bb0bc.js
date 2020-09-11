@@ -49987,7 +49987,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.riskAreas = exports.lastUpdate = void 0;
-var lastUpdate = '12/09/2020 01:11';
+var lastUpdate = '12/09/2020 01:20';
 exports.lastUpdate = lastUpdate;
 var riskAreas = [{
   "nameEnglish": "Egypt",
