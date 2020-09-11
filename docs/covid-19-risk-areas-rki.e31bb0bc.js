@@ -49987,7 +49987,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.riskAreas = exports.lastUpdate = void 0;
-var lastUpdate = '12/09/2020 01:20';
+var lastUpdate = '12/09/2020 01:30';
 exports.lastUpdate = lastUpdate;
 var riskAreas = [{
   "nameEnglish": "Egypt",
@@ -50973,7 +50973,7 @@ var backgrounds = {
   totalBlocked: "rgba(255,101,80,1)",
   partialBlocked: "#ffbf00"
 };
-var attributions = "\n    <h3>This is an opensource project that shows international risk areas according to <a target=\"_blank\" href=\"https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Risikogebiete_neu.html\">\xA9 Robert Koch-Institut</a></h3>\n    <p>This website is not related by any means with the German government and the information in this website can contain errors or be outdated.<br />\n    Please check <a target=\"_blank\" href=\"https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Risikogebiete_neu.html\">\xA9 Robert Koch-Institut</a> website for up to date information.</p>\n    <small>Last updated: ".concat(_riskAreas.lastUpdate, " CET</small>\n<!--    <p>This website will update automatically every day at 0:00 CET</p>-->\n    <p>If you want to contribute, please check the <a target=\"_blank\" href=\"https://github.com/lucasfsousa/covid-19-risk-areas-rki\">Github repository</a>.</p>\n    ");
+var attributions = "\n    <h3>This is an opensource project that shows international risk areas according to <a target=\"_blank\" href=\"https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Risikogebiete_neu.html\">\xA9 Robert Koch-Institut</a></h3>\n    <p>This website is not related by any means with the German government and the information in this website can contain errors or be outdated.<br />\n    Please check <a target=\"_blank\" href=\"https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Risikogebiete_neu.html\">\xA9 Robert Koch-Institut</a> website for up to date information.</p>\n    <small>Last update: ".concat(_riskAreas.lastUpdate, " CET</small>\n<!--    <p>This website will update automatically every day at 0:00 CET</p>-->\n    <p>If you want to contribute, please check the <a target=\"_blank\" href=\"https://github.com/lucasfsousa/covid-19-risk-areas-rki\">Github repository</a>.</p>\n    ");
 
 var _default = function _default() {
   /**
