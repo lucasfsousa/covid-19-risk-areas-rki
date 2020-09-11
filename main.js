@@ -23,7 +23,7 @@ const attributions =
     Please check <a target="_blank" href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Risikogebiete_neu.html">© Robert Koch-Institut</a> website for up to date information.</p>
     <small>Last updated: ${lastUpdate} CET</small>
 <!--    <p>This website will update automatically every day at 0:00 CET</p>-->
-    <p>If you want to contribute, please check the [Github repository](https://github.com/lucasfsousa/covid-19-risk-areas-rki).</p>
+    <p>If you want to contribute, please check the <a target="_blank" href="https://github.com/lucasfsousa/covid-19-risk-areas-rki">Github repository</a>.</p>
     `;
 
 export default () => {
