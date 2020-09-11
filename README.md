@@ -12,3 +12,15 @@ TBD
 
 # How to test it locally?
 TBD
+
+# External libraries
+
+- [axios](https://github.com/axios/axios) to download RKI page
+- [CheerioJS](https://github.com/cheeriojs/cheerio) to scrap RKI website
+- [Openlayer](https://github.com/openlayers/openlayers) to display the map
+- [Parcel](https://github.com/parcel-bundler/parcel) to run locally & build
+
+# External data
+
+- [countries.geojson](https://github.com/mikekeda/maps/blob/master/geojson/world.geojson) to plot the map
+- [generate/data/world-countries-iso.csv](https://github.com/sueddeutsche/sz-data/blob/master/world-countries/world-countries-iso) to map iso-code-3 and get countries english names
