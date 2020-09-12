@@ -19,10 +19,7 @@ export async function getRiskAreas(): Promise<RiskArea[]> {
             return null;
         }
         return {
-            nameEnglish: country.name_en,
-            nameGerman: country.name_de,
             isoAlpha3: country.iso_alpha_3,
-            originalText: area.originalText,
             originalHtml: area.originalHtml,
             blocked: area.blocked,
         }
@@ -100,10 +97,7 @@ export interface RiskAreaStatus {
 }
 
 export interface RiskArea {
-    nameEnglish: string;
-    nameGerman: string;
     isoAlpha3: string;
-    originalText: string;
     originalHtml: string;
     blocked: 'total' | 'partial';
 }
