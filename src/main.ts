@@ -12,7 +12,7 @@ import {defaults as defaultControls} from 'ol/control';
 
 const backgrounds = {
     default: "#e8e8e8",
-    totalBlocked: "rgba(255,101,80,1)",
+    totalBlocked: "#ff5001",
     partialBlocked: "#ffbf00",
 }
 

@@ -11,16 +11,19 @@
             font-family: "Helvetica Neue";
         }
 
+        /* makes map use 100% of the screen */
         html, body, .map {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
         }
+
+        /* this background will be the ocean color */
         .map {
-            /*background: #8AB4F8;*/
             background: #AAD3DF;
         }
+
         .ol-popup {
             position: absolute;
             background-color: white;
@@ -30,7 +33,7 @@
             border: 1px solid #cccccc;
             bottom: 12px;
             left: -50px;
-            min-width: 280px;
+            min-width: 320px;
         }
         .ol-popup:after, .ol-popup:before {
             top: 100%;
