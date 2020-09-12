@@ -18,12 +18,12 @@ const backgrounds = {
 
 const attributions =
     `
-    <h3>This is an opensource project that shows international risk areas according to <a target="_blank" href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Risikogebiete_neu.html">© Robert Koch-Institut</a></h3>
-    <p>This website is not related by any means with the German government and the information in this website can contain errors or be outdated.<br />
-    Please check <a target="_blank" href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Risikogebiete_neu.html">© Robert Koch-Institut</a> website for up to date information.</p>
+    <h3>This is an opensource project that shows international risk areas according to <a target="_blank" href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Risikogebiete_neu.html">Robert Koch-Institut© (RKI)</a></h3>
+    <p>This website is not related by any means with the German government and the information here can contain errors or be outdated.<br />
+    Please check <a target="_blank" href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Risikogebiete_neu.html">RKI</a> website for updated information.</p>
     <small>Last update: ${lastUpdate} CET</small>
 <!--    <p>This website will update automatically every day at 0:00 CET</p>-->
-    <p>If you want to contribute, please check the <a target="_blank" href="https://github.com/lucasfsousa/covid-19-risk-areas-rki">Github repository</a>.</p>
+    <p>If you want to contribute, please check <a target="_blank" href="https://github.com/lucasfsousa/covid-19-risk-areas-rki">Github repository</a>.</p>
     `;
 
 export default () => {
