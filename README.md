@@ -7,16 +7,28 @@ This project wants to present the same information in a map, so it will be easie
 
 This project is not related by any means with the German government and do not replace the list from [RKI](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Risikogebiete_neu.html).
 
-## Live App
+# Live App
 
 You can see the application running here: https://lucasfsousa.com/covid-19-risk-areas-rki/
 
+# Project structure
 
-# How the information is updated?
-TBD
+- `.github` contains [GitHub Actions](https://github.com/features/actions), responsible for deploying the app.
+- `docs` this folder will be used by [Github Pages](https://pages.github.com/) to host the application, it contains the production code and it will be automatically updated.
+- `generate` contains the file `generate/src/index.ts` that is responsible to get the current data from RKI and generate `src/risk-areas.ts`.
+- `src` contains typescript files responsible to plot the map with the generated data from RKI.
 
 # How to test it locally?
-TBD
+
+If you want to test it locally, clone the project and execute:
+```
+    npm install
+    npm run start
+```
+
+When doing this for the first time, please also copy `countries.geojson` to `dist` folder.
+
+Then access in the browser: http://localhost:1234
 
 # External libraries
 
@@ -28,4 +40,4 @@ TBD
 # External data
 
 - [countries.geojson](https://github.com/mikekeda/maps/blob/master/geojson/world.geojson) to plot the map
-- [generate/data/world-countries-iso.csv](https://github.com/sueddeutsche/sz-data/blob/master/world-countries/world-countries-iso) to map iso-code-3 and get countries english names
+- [generate/data/world-countries-iso.csv](https://github.com/sueddeutsche/sz-data/blob/master/world-countries/world-countries-iso) to map iso-code-3 and the country name in german.
