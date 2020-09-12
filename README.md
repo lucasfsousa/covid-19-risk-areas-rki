@@ -15,7 +15,7 @@ You can see the application running here: https://lucasfsousa.com/covid-19-risk-
 
 - `.github` contains [GitHub Actions](https://github.com/features/actions), responsible for deploying the app.
 - `docs` this folder will be used by [Github Pages](https://pages.github.com/) to host the application, it contains the production code and it will be automatically updated.
-- `generate` contains the file `generate/src/index.ts` that is responsible to get the current data from RKI and generate `src/risk-areas.ts`.
+- `generate` contains the file `generate/src/scraper.ts` that is responsible to get the current data from RKI and generate `src/risk-areas.ts`.
 - `src` contains typescript files responsible to plot the map with the generated data from RKI.
 
 # How to test it locally?
