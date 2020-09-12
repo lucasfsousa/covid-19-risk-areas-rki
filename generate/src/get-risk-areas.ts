@@ -8,6 +8,12 @@ const rkiPartialBlockedAreaRegex = /^(.+)?\s(-|–)/;
 
 const csvCountriesMetadataPath = 'data/world-countries-iso.csv';
 
+export interface RiskArea {
+    isoAlpha3: string;
+    originalHtml: string;
+    blocked: 'total' | 'partial';
+}
+
 export async function getRiskAreas(): Promise<RiskArea[]> {
     const countriesMetadata = await getCountriesMetadata();
     const rkiList = await getRkiList();
@@ -26,7 +32,7 @@ export async function getRiskAreas(): Promise<RiskArea[]> {
     }).filter(area => area != null);
 }
 
-async function getRkiList(): Promise<RiskAreaStatus[]> {
+async function getRkiList(): Promise<RkiList[]> {
     return axios.get(riskCountriesUrl)
         .catch((err: string) => {
             console.error('Error oppening RKI page');
@@ -35,7 +41,7 @@ async function getRkiList(): Promise<RiskAreaStatus[]> {
         .then((response: any) => {
             let $ = cheerio.load(response.data);
 
-            const riskAreas: RiskAreaStatus[] = [];
+            const riskAreas: RkiList[] = [];
 
             const countriesList = $('#main .text ul li').first().nextAll();
             $(countriesList).each((i: any, e: any): void => {
@@ -89,20 +95,14 @@ async function getCountriesMetadata(): Promise<CountryMetadata[]> {
         .fromFile(csvCountriesMetadataPath);
 }
 
-export interface RiskAreaStatus {
+interface RkiList {
     nameGerman: string;
     originalText: string;
     originalHtml: string;
     blocked: 'total' | 'partial';
 }
 
-export interface RiskArea {
-    isoAlpha3: string;
-    originalHtml: string;
-    blocked: 'total' | 'partial';
-}
-
-export interface CountryMetadata {
+interface CountryMetadata {
     name_en: string;
     name_en_official: string;
     name_de: string;
