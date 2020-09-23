@@ -6,11 +6,11 @@ import getRkiList from "./get-rki-list";
  * For each area inside the `rkiList`, the function will enrich it with iso-alpha-code.
  * If the area doesn't exist, an error message will be printed and the area will be ignored.
  */
-export default async (): Promise<RiskArea[]> => {
+export default async (): Promise<RiskResult> => {
     const countriesMetadata = await getCountriesMetadata();
     const rkiList = await getRkiList();
 
-    return rkiList.map(area => {
+    const riskAreas = rkiList.riskAreas.map(area => {
         const country = countriesMetadata.find(it => it.name_de == area.nameGerman);
         if (!country) {
             console.error(`Could not find country named ${area.nameGerman}`);
@@ -22,6 +22,16 @@ export default async (): Promise<RiskArea[]> => {
             blocked: area.blocked,
         }
     }).filter(area => area != null);
+
+    return {
+        rkiLastUpdate: rkiList.rkiLastUpdate,
+        riskAreas: riskAreas,
+    }
+}
+
+interface RiskResult {
+    rkiLastUpdate: string;
+    riskAreas: RiskArea[];
 }
 
 interface RiskArea {

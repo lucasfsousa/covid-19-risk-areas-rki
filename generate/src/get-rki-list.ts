@@ -6,7 +6,7 @@ const cheerio = require('cheerio');
  * These countries can be partially or totally blocked.
  * The original HTML data will also be returned.
  */
-export default async (): Promise<RkiList[]> => {
+export default async (): Promise<RkiPage> => {
     const rkiUrl = "https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Risikogebiete_neu.html";
     return axios.get(rkiUrl)
         .catch((err: string) => {
@@ -37,7 +37,12 @@ export default async (): Promise<RkiList[]> => {
                 }
             });
 
-            return riskAreas;
+            const rkiLastUpdate = $('.subheadline').text().replace('Stand: ', '').replace('\n', '').replace(' Uhr', '');
+
+            return {
+                rkiLastUpdate: rkiLastUpdate,
+                riskAreas: riskAreas,
+            };
         })
 }
 
@@ -91,6 +96,11 @@ function getTotallyBlockedArea(htmlElement: any): RkiList | null {
         originalHtml: originalHtml,
         blocked: 'total',
     };
+}
+
+interface RkiPage {
+    rkiLastUpdate: string;
+    riskAreas: RkiList[];
 }
 
 interface RkiList {

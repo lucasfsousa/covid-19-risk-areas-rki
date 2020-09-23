@@ -6,7 +6,7 @@ import VectorLayer from "ol/layer/Vector";
 import VectorSource from "ol/source/Vector";
 import View from "ol/View";
 import {Fill, Stroke, Style, Text} from "ol/style";
-import {lastUpdate, riskAreas} from "./risk-areas";
+import {lastUpdate, riskAreas, rkiLastUpdate} from "./risk-areas";
 import {transform} from "ol/proj";
 import {defaults as defaultControls} from 'ol/control';
 
@@ -21,7 +21,8 @@ const attributions =
     <h3>This is an opensource project that shows international risk areas according to <a target="_blank" href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Risikogebiete_neu.html">Robert Koch-Institut© (RKI)</a></h3>
     <p>This website is not related by any means with the German government and the information here can contain errors or be outdated.<br />
     Please check <a target="_blank" href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Risikogebiete_neu.html">RKI</a> website for updated information.</p>
-    <small>This website will be automatically updated every hour, Last update: <code>${lastUpdate} CET</code></small>
+    <small>This website will be automatically updated every hour, Last update: <code>${lastUpdate} CET</code></small><br />
+    <small>RKI last update: <code>${rkiLastUpdate} CET</code></small>
     <p>If you want to contribute, please check <a target="_blank" href="https://github.com/lucasfsousa/covid-19-risk-areas-rki">Github repository</a>.</p>
     `;
 
