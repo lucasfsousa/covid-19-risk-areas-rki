@@ -47,7 +47,7 @@ export default async (): Promise<RkiList[]> => {
  * Rumänien – die folgenden Gebiete („Kreise“) gelten derzeit als Risikogebiete:
  */
 function getPartiallyBlockedArea(htmlElement: any): RkiList | null {
-    const regexPartiallyBlocked = /^(.+)?\s(-|–)/;
+    const regexPartiallyBlocked = /^(.+)?\s?(-|–)/;
     const originalHtml = htmlElement.html();
     const originalText = htmlElement.find("p").text();
 
@@ -64,7 +64,7 @@ function getPartiallyBlockedArea(htmlElement: any): RkiList | null {
     }
 
     return {
-        nameGerman: groups[1],
+        nameGerman: groups[1].trim(),
         originalHtml: originalHtml,
         blocked: 'partial',
     };
@@ -76,7 +76,7 @@ function getPartiallyBlockedArea(htmlElement: any): RkiList | null {
  * USA (seit 3. Juli gesamte USA)
  */
 function getTotallyBlockedArea(htmlElement: any): RkiList | null {
-    const regexTotallyBlocked = /^(.+)?\s\(.*\)/;
+    const regexTotallyBlocked = /^(.+)?\s?\(.*\)/;
     const originalHtml = htmlElement.html();
     const originalText = htmlElement.text()
     const groups = originalText.match(regexTotallyBlocked)
@@ -87,7 +87,7 @@ function getTotallyBlockedArea(htmlElement: any): RkiList | null {
     }
 
     return {
-        nameGerman: groups[1],
+        nameGerman: groups[1].trim(),
         originalHtml: originalHtml,
         blocked: 'total',
     };
