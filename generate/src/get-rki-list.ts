@@ -54,7 +54,7 @@ export default async (): Promise<RkiPage> => {
 function getPartiallyBlockedArea(htmlElement: any): RkiList | null {
     const regexPartiallyBlocked = /^(.+)?\s?(-|–)/;
     const originalHtml = htmlElement.html();
-    const originalText = htmlElement.find("p").text();
+    const originalText = htmlElement.text();
 
     if (!originalText) {
         console.log(`could not extract paragraph text from ${originalHtml}`);
