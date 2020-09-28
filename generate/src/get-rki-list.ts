@@ -17,6 +17,7 @@ export default async (): Promise<RkiPage> => {
             let $ = cheerio.load(response.data);
 
             const riskAreas: RkiList[] = [];
+            const errors: string[] = [];
 
             const countriesList = $('#main .text ul li').first().nextAll();
             $(countriesList).each((i: any, e: any): void => {
@@ -27,7 +28,11 @@ export default async (): Promise<RkiPage> => {
 
                 let area: RkiList;
                 if (isPartiallyBlockedArea) {
-                    area = getPartiallyBlockedArea($(e));
+                    try {
+                        area = getPartiallyBlockedArea($(e));
+                    } catch(e) {
+                        errors.push(e.message);
+                    }
                 } else {
                     area = getTotallyBlockedArea($(e));
                 }
@@ -42,6 +47,7 @@ export default async (): Promise<RkiPage> => {
             return {
                 rkiLastUpdate: rkiLastUpdate,
                 riskAreas: riskAreas,
+                errors: errors,
             };
         })
 }
@@ -51,21 +57,19 @@ export default async (): Promise<RkiPage> => {
  * Frankreich – folgende Überseegebiete/Regionen gelten derzeit als Risikogebiete:
  * Rumänien – die folgenden Gebiete („Kreise“) gelten derzeit als Risikogebiete:
  */
-function getPartiallyBlockedArea(htmlElement: any): RkiList | null {
+function getPartiallyBlockedArea(htmlElement: any): RkiList {
     const regexPartiallyBlocked = /^(.+)?\s?(-|–)/;
     const originalHtml = htmlElement.html();
     const originalText = htmlElement.text();
 
     if (!originalText) {
-        console.log(`could not extract paragraph text from ${originalHtml}`);
-        return null;
+        throw new Error(`could not extract paragraph text from ${originalHtml}`);
     }
 
     const groups = originalText.match(regexPartiallyBlocked);
 
     if (!groups || groups.length < 1) {
-        console.error(`${originalText} doesn't match regex`);
-        return null
+        throw new Error(`${originalText} doesn't match regex`);
     }
 
     return {
@@ -80,15 +84,14 @@ function getPartiallyBlockedArea(htmlElement: any): RkiList | null {
  * Brasilien (seit 15. Juni)
  * USA (seit 3. Juli gesamte USA)
  */
-function getTotallyBlockedArea(htmlElement: any): RkiList | null {
+function getTotallyBlockedArea(htmlElement: any): RkiList {
     const regexTotallyBlocked = /^(.+)?\s?\(.*\)/;
     const originalHtml = htmlElement.html();
     const originalText = htmlElement.text()
     const groups = originalText.match(regexTotallyBlocked)
 
     if (!groups || groups.length < 1) {
-        console.error(`${originalText} doesn't match regex`);
-        return null
+        throw new Error(`${originalText} doesn't match regex`);
     }
 
     return {
@@ -101,6 +104,7 @@ function getTotallyBlockedArea(htmlElement: any): RkiList | null {
 interface RkiPage {
     rkiLastUpdate: string;
     riskAreas: RkiList[];
+    errors: string[];
 }
 
 interface RkiList {

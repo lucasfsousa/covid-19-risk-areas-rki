@@ -26,12 +26,14 @@ export default async (): Promise<RiskResult> => {
     return {
         rkiLastUpdate: rkiList.rkiLastUpdate,
         riskAreas: riskAreas,
+        errors: rkiList.errors,
     }
 }
 
 interface RiskResult {
     rkiLastUpdate: string;
     riskAreas: RiskArea[];
+    errors: string[];
 }
 
 interface RiskArea {

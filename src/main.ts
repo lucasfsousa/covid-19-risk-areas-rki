@@ -6,7 +6,7 @@ import VectorLayer from "ol/layer/Vector";
 import VectorSource from "ol/source/Vector";
 import View from "ol/View";
 import {Fill, Stroke, Style, Text} from "ol/style";
-import {lastUpdate, riskAreas, rkiLastUpdate} from "./risk-areas";
+import {errors, lastUpdate, riskAreas, rkiLastUpdate} from "./risk-areas";
 import {transform} from "ol/proj";
 import {defaults as defaultControls} from 'ol/control';
 
@@ -24,6 +24,7 @@ const attributions =
     <small>This website will be automatically updated every hour, Last update: <code>${lastUpdate} CET</code></small><br />
     <small>RKI last update: <code>${rkiLastUpdate} CET</code></small>
     <p>If you want to contribute, please check <a target="_blank" href="https://github.com/lucasfsousa/covid-19-risk-areas-rki">Github repository</a>.</p>
+    ${errors.length > 0 ? '<h4 style="color: #b30000">Unfortunately we had some errors in the last import, please check console for more details.</h4>' : ''}
     `;
 
 export default () => {

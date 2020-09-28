@@ -14,6 +14,7 @@ getRiskAreas().then(result => {
 export const lastUpdate = '${currentDatetime}';
 export const rkiLastUpdate = '${result.rkiLastUpdate}';
 export const riskAreas = ${JSON.stringify(result.riskAreas)};
+export const errors: string[] = ${JSON.stringify(result.errors)};
 `;
 
     fs.writeFile(outputFile, content, (err: any) => {
