@@ -15,7 +15,7 @@ export default async (): Promise<RiskResult> => {
     const riskAreas = rkiList.riskAreas.map(area => {
         const country = countriesMetadata.find(it => it.name_de == area.nameGerman);
         if (!country) {
-            errors.push(`Could not find country named ${area.nameGerman}`);
+            errors.push(`Could not find country named '${area.nameGerman}'`);
             return null;
         }
         return {
