@@ -87,15 +87,24 @@ function getPartiallyBlockedArea(htmlElement: any): RkiList {
 function getTotallyBlockedArea(htmlElement: any): RkiList {
     const regexTotallyBlocked = /^(.+)?\s?\(.*\)/;
     const originalHtml = htmlElement.html();
-    const originalText = htmlElement.text()
-    const groups = originalText.match(regexTotallyBlocked)
+    const originalText = htmlElement.text();
+    const groups = originalText.match(regexTotallyBlocked);
 
     if (!groups || groups.length < 1) {
         throw new Error(`${originalText} doesn't match regex`);
     }
 
+    let nameGerman = groups[1].trim();
+
+    const regexGesamteLand = /^(.+)?\s?(-|–) das gesamte Land/;
+    const gesamteLandGroups = nameGerman.match(regexGesamteLand);
+
+    if (gesamteLandGroups && gesamteLandGroups.length >= 1) {
+        nameGerman = gesamteLandGroups[1].trim();
+    }
+
     return {
-        nameGerman: groups[1].trim(),
+        nameGerman: nameGerman,
         originalHtml: originalHtml,
         blocked: 'total',
     };
