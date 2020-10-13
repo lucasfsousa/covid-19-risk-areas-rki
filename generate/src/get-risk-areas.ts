@@ -10,10 +10,12 @@ export default async (): Promise<RiskResult> => {
     const countriesMetadata = await getCountriesMetadata();
     const rkiList = await getRkiList();
 
+    let errors = rkiList.errors;
+
     const riskAreas = rkiList.riskAreas.map(area => {
         const country = countriesMetadata.find(it => it.name_de == area.nameGerman);
         if (!country) {
-            console.error(`Could not find country named ${area.nameGerman}`);
+            errors.push(`Could not find country named ${area.nameGerman}`);
             return null;
         }
         return {
