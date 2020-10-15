@@ -42,7 +42,7 @@ export default async (): Promise<RkiPage> => {
                 }
             });
 
-            const rkiLastUpdate = $('.subheadline').text().replace('Stand: ', '').replace('\n', '').replace(' Uhr', '');
+            const rkiLastUpdate = $('.subheadline p').text().replace('Stand: ', '').replace('\n', '').replace(' Uhr', '').trim();
 
             return {
                 rkiLastUpdate: rkiLastUpdate,
