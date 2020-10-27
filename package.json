@@ -10,6 +10,6 @@
   },
   "scripts": {
     "start": "node_modules/.bin/parcel index.html",
-    "build": "cd generate && npm ci && npm run scraper && cd ../ && node_modules/.bin/parcel build index.html --no-content-hash --no-source-maps -d docs --public-url ./ && cp countries.geojson docs"
+    "build": "node_modules/.bin/parcel build index.html --no-content-hash --no-source-maps -d docs --public-url ./ && cp countries.geojson docs"
   }
 }
