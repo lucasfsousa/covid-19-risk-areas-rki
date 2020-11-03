@@ -34,7 +34,11 @@ export default async (): Promise<RkiPage> => {
                         errors.push(e.message);
                     }
                 } else {
-                    area = getTotallyBlockedArea($(e));
+                    try {
+                        area = getTotallyBlockedArea($(e));
+                    } catch (e) {
+                        errors.push(e.message);
+                    }
                 }
 
                 if (area != null) {
