@@ -21,7 +21,7 @@ const attributions =
     <h3>This is an opensource project that shows international risk areas according to <a target="_blank" href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Risikogebiete_neu.html">Robert Koch-Institut© (RKI)</a></h3>
     <p>This website is not related by any means with the German government and the information here can contain errors or be outdated.<br />
     Please check <a target="_blank" href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Risikogebiete_neu.html">RKI</a> website for updated information.</p>
-    <h4 style="color: #b30000">Unfortunately RKI blocked websites to scrape the page, this website will no longer be updated.</h4>
+    <h5 style="color: #b30000">Unfortunately RKI blocked bots to scrape the page, therefore this website will be no longer be automatically updated.</h5>
     <small>Last update: <code>${lastUpdate} CET</code></small><br />
     <small>RKI last update: <code>${rkiLastUpdate} CET</code></small>
     <p>If you want to contribute, please check <a target="_blank" href="https://github.com/lucasfsousa/covid-19-risk-areas-rki">Github repository</a>.</p>
